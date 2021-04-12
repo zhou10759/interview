@@ -153,10 +153,13 @@ function arrayNonRepeatfy(arr) {
 let obj2 = deepCopy(obj1);
 console.log(obj1);
 console.log(obj2);
-console.log(obj2 === obj1)
+// console.log(obj2 === obj1)
 obj2.name = 'obj2.name';
 obj2.say();//复制代码
 obj1.say();//复制代码
+obj2.list.push(7, 8, 9)
+console.log(obj1)
+console.log(obj2)
 
 ```
 
