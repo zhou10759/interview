@@ -119,6 +119,12 @@ function arrayNonRepeatfy(arr) {
               // 如果该key的value值是对象，递归调用深拷贝方法进行拷贝
               if (isObject(source[key])) {
                   res[key] = deepCopy(source[key], hash);
+              } else if (Array.isArray(source[key])) {
+                  // 如果是数组
+                  res[key] = []
+                  for (var i = 0, len = source[key].length; i < len; i++) {
+                      res[key].push(deepCopy(source[key][i]));
+                  }
               } else {
                   // 如果该key的value值不是对象，则把参数对象key的value值赋给返回值的key
                   res[key] = source[key];
