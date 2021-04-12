@@ -26,7 +26,7 @@ function unique (arr) {
   return arr
 }
 
-``
+```
 
 ### 3.利用indexOf
 
