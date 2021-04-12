@@ -128,27 +128,27 @@ function arrayNonRepeatfy(arr) {
   };
 
  let obj1 = {
-            name: 'obj.name',
-            un: undefined,
-            nu: null,
-            sy: Symbol(123),
-            say: function () {
-                console.log(this.name);
-            },
-            reg: /\d{6}/g,
-            date: new Date(),
-            child: {
-                name: 'child.name'
-            },
-            list: [1,2,3,4]
-        }
-        let obj2 = deepCopy(obj1);
-        console.log(obj1);
-        console.log(obj2);
-        console.log(obj2 === obj1)
-        obj2.name = 'obj2.name';
-        obj2.say();//复制代码
-        obj1.say();//复制代码
+    name: 'obj.name',
+    un: undefined,
+    nu: null,
+    sy: Symbol(123),
+    say: function () {
+        console.log(this.name);
+    },
+    reg: /\d{6}/g,
+    date: new Date(),
+    child: {
+        name: 'child.name'
+    },
+    list: [1,2,3,4]
+}
+let obj2 = deepCopy(obj1);
+console.log(obj1);
+console.log(obj2);
+console.log(obj2 === obj1)
+obj2.name = 'obj2.name';
+obj2.say();//复制代码
+obj1.say();//复制代码
 
 ```
 
