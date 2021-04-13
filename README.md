@@ -250,6 +250,6 @@ setTimeout(function() {
 
 ### MVVM设计模式
 
-MVVM是** Model-View-ViewModel **缩写，也就是吧MVC中的Controller演变成ViewModel。Model层代码数据模型，View代表UI组件，ViewModel是view和model层的桥梁，数据会绑定ViewModel层自动将数据渲染到页面中，视图变化时会通知ViewModel层更新数据
+MVVM是 ** Model-View-ViewModel ** 缩写，也就是吧MVC中的Controller演变成ViewModel。Model层代码数据模型，View代表UI组件，ViewModel是view和model层的桥梁，数据会绑定ViewModel层自动将数据渲染到页面中，视图变化时会通知ViewModel层更新数据
 
 
