@@ -163,4 +163,77 @@ console.log(obj2)
 
 ```
 
+# js的事件循环eventloop
+
+### 进程与线程
+
+#### 进程  资源分配的最小单位
+
+应用程序的执行实例，每一个进程都是由私有的虚拟地址空间、代码、数据和其他系统资源所组成。
+
+#### 线程 程序执行的最小单位
+
+线程是进程内的一个独立执行单元，在不同的线程之间是可以共享进程资源的。
+
+
+###  宏任务和微任务
+
+###### 宏任务包括：** script（整体代码），setTimeout，setInterval，requestAnimationFrame，I/O，setTmmediate **
+
+###### 其中setImmediate只存在于Node中，requestAnimationFrame只存在于浏览器中。
+
+
+
+###### 微任务包括：** Promise，Object.observe（已废弃），MutationObserver（html5新特性） **
+
+###### 其中process.nextTick只存在于Node中，MutationObserver只存在于浏览器中。
+
+##### 执行方式
+
+执行一个宏任务，过程中遇到微任务时，将其放在微任务的事件队列里，当前宏任务执行完成后，会查看微任务的事件队列，以此执行里面的微任务。如果还有宏任务的话，在重新开启宏任务。。。
+
+``
+console.log('a');
+
+setTimeout(function() {
+    console.log('b');
+    process.nextTick(function() {
+        console.log('c');
+    })
+    new Promise(function(resolve) {
+        console.log('d');
+        resolve();
+    }).then(function() {
+        console.log('e')
+    })
+})
+process.nextTick(function() {
+    console.log('f');
+})
+new Promise(function(resolve) {
+    console.log('g');
+    resolve();
+}).then(function() {
+    console.log('h')
+})
+
+setTimeout(function() {
+    console.log('i');
+    process.nextTick(function() {
+        console.log('j');
+    })
+    new Promise(function(resolve) {
+        console.log('k');
+        resolve();
+    }).then(function() {
+        console.log('l')
+    })
+})
+
+
+``
+
+
+
+
 
